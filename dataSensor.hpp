@@ -21,7 +21,7 @@ typedef enum {
 class DataSensor
 {
 public:
-	DataSensor();
+	DataSensor(char* _name, char _ref);
 	virtual ~DataSensor();
 
 	static int getNbSensors();
@@ -29,6 +29,7 @@ public:
 
 	int 			id;
 	char*			name;
+	char			ref;
 	char*			error;
 
 	//Data
