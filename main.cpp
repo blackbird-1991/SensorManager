@@ -5,9 +5,9 @@
  *      Author: Djibril
  */
 #include <stdio.h>
-#include "dataSensor.hpp"
 
-
+#include "sensors/dataSensor.hpp"
+#include "loggers/dataLogger.hpp"
 
 int main(void)
 {
@@ -15,12 +15,17 @@ int main(void)
 
 	GPS_DataSensor* gps;
 	gps=new GPS_DataSensor();
-
 	Height_DataSensor* height;
 	height=new Height_DataSensor();
+
+	SD_Logger* sdlogger;
+	sdlogger=new SD_Logger();
+
 	printf("nb capteurs : %i\n",DataSensor::getNbSensors());
 	printf("name : %s  id : %i\n",gps->name,gps->id);
 	printf("name : %s  id : %i\n",height->name,height->id);
+	printf("\n");
+	printf("name : %s\n",sdlogger->name);
 
 	return 0;
 }
