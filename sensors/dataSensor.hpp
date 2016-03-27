@@ -19,7 +19,7 @@ typedef enum {
 }tStateSensor;
 
 typedef enum {
-	NO_ERROR,
+	SENSOR_NO_ERROR,
 	INIT_FAIL,
 	OPEN_FAIL,
 	COMM_FAIL,
@@ -34,6 +34,8 @@ public:
 	virtual ~DataSensor();
 	virtual bool	initialize()=0;
 	static int 		getNbSensors();
+
+	virtual bool	acquire()=0;
 
 	//Data ref
 	const int 		id;
@@ -64,6 +66,7 @@ public:
 	GPS_DataSensor();
 	~GPS_DataSensor();
 	virtual bool	initialize();
+	virtual bool	acquire();
 
 	virtual char* 	getDataString();
 	virtual char* 	getFullDataString();
@@ -76,6 +79,7 @@ public:
 	Height_DataSensor();
 	~Height_DataSensor();
 	virtual bool	initialize();
+	virtual bool	acquire();
 
 	virtual char* 	getDataString();
 	virtual char* 	getFullDataString();

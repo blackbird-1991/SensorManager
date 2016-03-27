@@ -6,6 +6,7 @@
  */
 
 #include "dataSensor.hpp"
+#include <stdio.h>
 
 #define DATA_SENSOR_GPS_NAME	"GPS sensor"
 #define DATA_SENSOR_GPS_REF		0x0A
@@ -14,6 +15,8 @@
 #define DATA_SENSOR_HEIGHT_REF	0x0B
 
 #define SIZE_DATA_SENSOR_NAME		15
+
+#define DEBUG
 
 DataSensor::DataSensor(char* _name, char _ref,int _id,int _dataSize,int _dataFullSize):
 id(_id),
@@ -27,7 +30,7 @@ dataFullStrSize(_dataFullSize)
 
 	name	= (char *)malloc(sizeof(char)*SIZE_DATA_SENSOR_NAME);
 	name	= _name;
-	error	= NO_ERROR;
+	error	= SENSOR_NO_ERROR;
 	_data_string=NULL;
 
 	state	= UNCONNECTED;
@@ -68,6 +71,17 @@ GPS_DataSensor::~GPS_DataSensor()
 
 bool GPS_DataSensor::initialize()
 {
+#ifdef DEBUG
+	printf("Debug : GPS init\n");
+#endif
+	return true;
+}
+
+bool GPS_DataSensor::acquire()
+{
+#ifdef DEBUG
+	printf("Debug : GPS acquire\n");
+#endif
 	return true;
 }
 
@@ -100,6 +114,17 @@ Height_DataSensor::~Height_DataSensor()
 
 bool Height_DataSensor::initialize()
 {
+#ifdef DEBUG
+	printf("Debug : Height sensor init\n");
+#endif
+	return true;
+}
+
+bool Height_DataSensor::acquire()
+{
+#ifdef DEBUG
+	printf("Debug : Height sensor acquire\n");
+#endif
 	return true;
 }
 

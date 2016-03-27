@@ -6,11 +6,14 @@
  */
 
 #include "dataLogger.hpp"
+#include <stdio.h>
 
 #define SIZE_DATA_LOGGER_NAME		15
 
 #define SD_LOGGER_NAME			"SD logger"
 #define EEPROM_LOGGER_NAME		"EEPROM_logger"
+
+#define DEBUG
 
 DataLogger::DataLogger(char* _name):
 state(LOG_INIT),
@@ -39,19 +42,31 @@ SD_Logger::~SD_Logger() {
 }
 
 bool SD_Logger::initialize() {
-	return false;
+#ifdef DEBUG
+	printf("Debug : SD init\n");
+#endif
+	return true;
 }
 
 bool SD_Logger::open() {
-	return false;
+#ifdef DEBUG
+	printf("Debug : SD open\n");
+#endif
+	return true;
 }
 
 bool SD_Logger::close() {
-	return false;
+#ifdef DEBUG
+	printf("Debug : SD close\n");
+#endif
+	return true;
 }
 
 bool SD_Logger::record(unsigned int size_str, char* data) {
-	return false;
+#ifdef DEBUG
+	printf("Debug : SD record\n");
+#endif
+	return true;
 }
 
 /*
@@ -67,19 +82,31 @@ EEPROM_Logger::~EEPROM_Logger() {
 }
 
 bool EEPROM_Logger::initialize() {
-	return false;
+#ifdef DEBUG
+	printf("Debug : EEPROM init\n");
+#endif
+	return true;
 }
 
 bool EEPROM_Logger::open() {
-	return false;
+#ifdef DEBUG
+	printf("Debug : EEPROM open\n");
+#endif
+	return true;
 }
 
 bool EEPROM_Logger::close() {
-	return false;
+#ifdef DEBUG
+	printf("Debug : EEPROM close\n");
+#endif
+	return true;
 }
 
 bool EEPROM_Logger::record(unsigned int size_str, char* data) {
-	return false;
+#ifdef DEBUG
+	printf("Debug : EEPROM record\n");
+#endif
+	return true;
 }
 
 
