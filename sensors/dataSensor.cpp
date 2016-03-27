@@ -66,9 +66,9 @@ GPS_DataSensor::~GPS_DataSensor()
 
 }
 
-void GPS_DataSensor::initialize()
+bool GPS_DataSensor::initialize()
 {
-
+	return true;
 }
 
 char* GPS_DataSensor::getDataString()
@@ -98,9 +98,9 @@ Height_DataSensor::~Height_DataSensor()
 
 }
 
-void Height_DataSensor::initialize()
+bool Height_DataSensor::initialize()
 {
-
+	return true;
 }
 
 char* Height_DataSensor::getDataString()

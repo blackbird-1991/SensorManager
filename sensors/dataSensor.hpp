@@ -32,7 +32,7 @@ class DataSensor
 public:
 	DataSensor(char* _name, char _ref,int _id,int _dataSize,int _dataFullSize);
 	virtual ~DataSensor();
-	virtual void	initialize()=0;
+	virtual bool	initialize()=0;
 	static int 		getNbSensors();
 
 	//Data ref
@@ -63,7 +63,7 @@ class GPS_DataSensor: public DataSensor
 public:
 	GPS_DataSensor();
 	~GPS_DataSensor();
-	virtual void	initialize();
+	virtual bool	initialize();
 
 	virtual char* 	getDataString();
 	virtual char* 	getFullDataString();
@@ -75,7 +75,7 @@ class Height_DataSensor: public DataSensor
 public:
 	Height_DataSensor();
 	~Height_DataSensor();
-	virtual void	initialize();
+	virtual bool	initialize();
 
 	virtual char* 	getDataString();
 	virtual char* 	getFullDataString();
